@@ -1,4 +1,4 @@
-//Version 5
+//Version 6
 function init() {
   //Find our div containers in the DOM
   var dataContainerOrientation = document.getElementById('dataContainerOrientation');
@@ -43,7 +43,7 @@ function init() {
 
         if(!window.chrome) {
           //Assume Android stock (this is crude, but good enough for our example) and apply offset
-          webkitAlpha = alpha-270;
+          webkitAlpha = alpha;
         }
       }
 
