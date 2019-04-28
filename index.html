@@ -1,27 +1,40 @@
-<!--Version 8-->
+<!--Version 9-->
+
+<!--
+Code inspired and adapted from HTML5 for the Mobile Web: Device Orientation Events
+https://mobiforge.com/design-development/html5-mobile-web-device-orientation-events
+-->
+
 <!DOCTYPE html>
 <html>
 	<head>
+    <!--Possibly not essential but has a Title to be in line with conventions-->
     <title>Haptica</title>
+    <!--Links to the CSS and the Javascript-->
 		<script src="javascript.js"></script>
 		<link rel="stylesheet" href="styles.css">
 	</head>
   <body onload="init()">
+    <!--Displays Version Number for easier testing. Will change to Title when finished-->
     <div id="version">
-      Version 8
+      Version 9
     </div>
     <br>
+    <!--Show whether the which Cardinal Direction the phone is facing. Possibly remove or adapt later-->
     <div id="compassDirection">
     </div>
     <br>
+    <!--Shows how many degrees off north you are. Good for testing. May not be used in final app-->
     <div id="degreesOffNorth">
       No deg off North Found
     </div>
     <br>
+    <!--Shows the Alpha, Beta, and Gamma raw data and rounds it. Great for testing-->
     <div id="dataContainerOrientation">
       No device orientation data
     </div>
     <br>
+    <!--Shows the accuracy of the data, as it isn't perfect and I want to make that very clear-->
     <div id="dataContainerAccuracy">
     </div>
     <br>
