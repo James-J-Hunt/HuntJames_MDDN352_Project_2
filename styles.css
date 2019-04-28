@@ -1,0 +1,15 @@
+/*Version 1*/
+#version {
+	text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#dataContainerOrientation {
+	text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#dataContainerMotion {
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+}
