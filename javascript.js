@@ -1,4 +1,4 @@
-// Version 9
+// Version 10
 
 // Code inspired and adapted from HTML5 for the Mobile Web: Device Orientation Events
 // https://mobiforge.com/design-development/html5-mobile-web-device-orientation-events
@@ -11,6 +11,9 @@ function init() {
   var degreesOffNorth = document.getElementById('degreesOffNorth'); // How many degrees from north container
   var dataContainerOrientation = document.getElementById('dataContainerOrientation'); // Alpha, Beta, and Gamma container
   var dataContainerAccuracy = document.getElementById('dataContainerAccuracy'); // iPhone Accuracy container
+
+  //Variable to change the background colour
+  var backColour = document.querySelector('#container');
 
   // Container for phone type!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   var deviceType = document.getElementById('deviceType');
@@ -62,6 +65,18 @@ function init() {
       }
       else {
         northDegree = alpha; // No action needed so just applies the variable
+      }
+
+      // Variable to change the colour of the background depending on the equation (How many degrees away from North you are)
+      var changeColour = 200 - (northDegree*0.6);
+
+      // If you are pointing the phone within 5 degrees of North either side then changes to green colour.
+      if (northDegree < 5){
+        backColour.style.backgroundColor = 'rgb(66, 244, 101)';
+      }
+      // Fades the colour to darker the farther you point from North
+      else {
+        backColour.style.backgroundColor = 'rgb(' + changeColour + ', 60 , 60)';
       }
 
       // Calculates the data to be used to display the Cardinal Directions. 
