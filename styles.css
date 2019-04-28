@@ -1,4 +1,4 @@
-/*Version 7*/
+/*Version 8*/
 #version {
 	text-align: center;
     text-transform: uppercase;
@@ -10,6 +10,11 @@
 	text-align: center;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 300%;
+}
+#degreesOffNorth {
+	text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 200%;
 }
 #dataContainerOrientation {
 	text-align: center;

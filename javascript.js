@@ -1,9 +1,10 @@
-//Version 7
+//Version 8
 function init() {
   //Find our div containers in the DOM
   var dataContainerOrientation = document.getElementById('dataContainerOrientation');
   var dataContainerAccuracy = document.getElementById('dataContainerAccuracy');
   var compassDirection = document.getElementById('compassDirection');
+  var degreesOffNorth = document.getElementById('degreesOffNorth');
 
   //Container for phone type!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   var deviceType = document.getElementById('deviceType');
@@ -14,6 +15,8 @@ function init() {
     window.addEventListener('deviceorientation', function(event) {
       var alpha;
       var accuracy;
+
+      var northDegree;
 
       //Variable for phone type!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
       var type;
@@ -42,8 +45,15 @@ function init() {
         //End of what I will possibly remove.!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
         if(!window.chrome) {
-          webkitAlpha = alpha + 90;
+          webkitAlpha = alpha + 180;
         }
+      }
+
+      if (alpha > 180){
+        northDegree = 360 - alpha;
+      }
+      else {
+        northDegree = alpha;
       }
 
       if(alpha > 22.5 && alpha < 67.4){compassDirection.innerHTML = 'NE';}
@@ -60,6 +70,9 @@ function init() {
 
       if(accuracy !=null) 
         dataContainerAccuracy.innerHTML = 'Accuracy: ' + accuracy + ' Degrees off';
+
+      if(northDegree !=null) 
+        degreesOffNorth.innerHTML =  Math.round(northDegree) + ' Degrees Off North';
 
       //For testing purposes will remove later if I can. Just recognises whether or not the device is an iPhone So I can test it properly.!!!!!!!!!!!!!!!!!!!!
       if(type == 1) {
