@@ -1,71 +1,19 @@
-<!--Version 14-->
-
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-    <title>Haptica</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>🌏 Google Maps Geolocation Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="styles.css">
   </head>
-  <body id="container" onload="init()">
-    <!--Displays Version Number for easier testing. Will change to Title when finished-->
-    <div id="version">
-      Version 14
-    </div>
-    <br>
+  <body>
+    <main class="container">
+      <div id="map" class="map"></div>
+      <p id="info" class="info"></p>
+    </main>
 
-    <!--Search Bar Parts HTML-->
-    <div id="coorBox">
-      <input id="address" type="textbox" value="Enter Place Here">
-      <input id="submit" type="button" value="Geocode">
-    </div>
-    <br>
-
-    <!--Div to display the lat and long values-->
-    <div id="Coord2">
-      Desired Coordinates:
-    </div>
-
-    <!--Shows the coordinates of the desire location-->
-    <div id="latLong2">
-      Lat and Long values not obtained yet
-      <br> or device not supported.
-    </div>
-    <br>
-
-    <!--Show whether the which Cardinal Direction the phone is facing. Possibly remove or adapt later-->
-    <div id="compassDirection">
-    </div>
-    <br>
-
-    <!--Shows how many degrees off north you are. Good for testing. May not be used in final app-->
-    <div id="degreesOffNorth">
-      No deg off North Found
-    </div>
-    <br>
-
-    <!--Shows the Alpha, Beta, and Gamma raw data and rounds it. Great for testing-->
-    <div id="dataContainerOrientation">
-      No device orientation data
-    </div>
-    <br>
-
-    <!--Shows the accuracy of the data, as it isn't perfect and I want to make that very clear-->
-    <div id="dataContainerAccuracy">
-    </div>
-    <br>
-
-    <!--Container to Display Device Type Data. May Remove Later!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
-    <div id="deviceType">
-      Device Type not found
-    </div>
-    <br>
-    <!--End of what I will possibly remove.!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
-
-    <!--Legally to use data from the Google Maps API I have to display the map, so has to be displayed-->
-    <div id="map"></div>
-
-    <!--Links to the CSS, Javascript, and the Google Map API-->
-    <script src="javascript.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9NS6UtaCtvTytSXmlS5ArEEr_XSaZ9B8&callback=initMap"></script>
+    <script src="script.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9NS6UtaCtvTytSXmlS5ArEEr_XSaZ9B8&callback=init"></script>
   </body>
 </html>
