@@ -1,4 +1,4 @@
-// Version 10
+// Version 11
 
 // Code inspired and adapted from HTML5 for the Mobile Web: Device Orientation Events
 // https://mobiforge.com/design-development/html5-mobile-web-device-orientation-events
