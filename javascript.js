@@ -1,10 +1,16 @@
-// Version 13
+// Version 14
 
-// Code inspired and adapted from HTML5 for the Mobile Web: Device Orientation Events
+// Compass Code and alpha data etc inspired and adapted from HTML5 for the Mobile Web: Device Orientation Events
 // https://mobiforge.com/design-development/html5-mobile-web-device-orientation-events
 
-// Code also an combination of many helpful tutorials online but no direct code taken
+// Map code is based completely on Google Maps Platform Geocoding Service code. Only a few lines of adjustments and additions
+// Couldn't have had this functionalit without it, although I don't realy understand the code that well. Just well enough to
+// Impliment the things I needed
+// https://developers.google.com/maps/documentation/javascript/examples/geocoding-simple?fbclid=IwAR3CdZ7HGf8jQHV5rKKkPwOL1HVNK8gpIPBZhMbb5ANB9yst2mW4YFrECdY
 
+// Code also an combination of many helpful tutorials online but no major code taken just used to fix small issues
+
+//Code for the compass and all the data it returns
 function init() {
   // Variables to change the content of the HTML
   var compassDirection = document.getElementById('compassDirection'); // Cardinal Direction container
@@ -112,4 +118,37 @@ function init() {
 
     }, false); // This could also be what loops the code. I am not fully sure
   }
+}
+
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 8,
+    center: {lat: -41.286, lng: 174.776} // Changed coordinates to focus on Wellington
+  });
+  var geocoder = new google.maps.Geocoder();
+
+  document.getElementById('submit').addEventListener('click', function() {
+    geocodeAddress(geocoder, map);
+  });
+}
+
+function geocodeAddress(geocoder, resultsMap) {
+  var address = document.getElementById('address').value;
+  var latLong2 = document.getElementById('latLong2'); // Holds the container to show the coordinate data for desire location
+
+  geocoder.geocode({'address': address}, function(results, status) {
+    if (status === 'OK') {
+      resultsMap.setCenter(results[0].geometry.location);
+      var marker = new google.maps.Marker({
+        map: resultsMap,
+        position: results[0].geometry.location
+      });
+      var lat = marker.getPosition().lat(); // Gets the latitude of the desire location and holds it in a variable
+      var lng = marker.getPosition().lng(); // Gets the longitude of the desire location and holds it in a variable
+      latLong2.innerHTML = 'Lat: ' + lat + '<br/>Long: ' + lng; // Outputs the variable above into the HTML
+    } 
+    else {
+      alert('Geocode was not successful for the following reason: ' + status);
+    }
+  });
 }
