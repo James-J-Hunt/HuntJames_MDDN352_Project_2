@@ -1,11 +1,11 @@
-// Version 14
+// Version 17
 
 // Compass Code and alpha data etc inspired and adapted from HTML5 for the Mobile Web: Device Orientation Events
 // https://mobiforge.com/design-development/html5-mobile-web-device-orientation-events
 
 // Map code is based completely on Google Maps Platform Geocoding Service code. Only a few lines of adjustments and additions
 // Couldn't have had this functionalit without it, although I don't realy understand the code that well. Just well enough to
-// Impliment the things I needed
+// Impliment the things I needed. Relevant code marked between two comments which say (// GMP - GS Start) and (// GMP - GS End)
 // https://developers.google.com/maps/documentation/javascript/examples/geocoding-simple?fbclid=IwAR3CdZ7HGf8jQHV5rKKkPwOL1HVNK8gpIPBZhMbb5ANB9yst2mW4YFrECdY
 
 // Code also an combination of many helpful tutorials online but no major code taken just used to fix small issues
@@ -120,6 +120,7 @@ function init() {
   }
 }
 
+// GMP - GS Start
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 8,
@@ -134,7 +135,7 @@ function initMap() {
 
 function geocodeAddress(geocoder, resultsMap) {
   var address = document.getElementById('address').value;
-  var latLong2 = document.getElementById('latLong2'); // Holds the container to show the coordinate data for desire location
+  var latLong2 = document.getElementById('latLong2'); // My addition. Holds the container to show the coordinate data for desire location
 
   geocoder.geocode({'address': address}, function(results, status) {
     if (status === 'OK') {
@@ -143,12 +144,18 @@ function geocodeAddress(geocoder, resultsMap) {
         map: resultsMap,
         position: results[0].geometry.location
       });
-      var lat = marker.getPosition().lat(); // Gets the latitude of the desire location and holds it in a variable
-      var lng = marker.getPosition().lng(); // Gets the longitude of the desire location and holds it in a variable
-      latLong2.innerHTML = 'Lat: ' + lat + '<br/>Long: ' + lng; // Outputs the variable above into the HTML
+      var lat = marker.getPosition().lat(); // My addition. Gets the latitude of the desire location and holds it in a variable
+      var lng = marker.getPosition().lng(); // My addition. Gets the longitude of the desire location and holds it in a variable
+      latLong2.innerHTML = 'Lat: ' + lat + '<br/>Long: ' + lng; // My addition. Outputs the variable above into the HTML
     } 
     else {
       alert('Geocode was not successful for the following reason: ' + status);
     }
   });
 }
+// GMP - GS End
+
+navigator.geolocation.watchPosition(function(position) {
+  document.getElementById('currentLat').innerHTML = position.coords.latitude;
+  document.getElementById('currentLon').innerHTML = position.coords.longitude;
+});
