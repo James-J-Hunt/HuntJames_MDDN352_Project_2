@@ -1,4 +1,4 @@
-/* Version 19 */
+/* Version 20 */
 html, body {
 	height: 100%;
 	margin: 0;
@@ -11,6 +11,10 @@ html, body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 150%;
 }
+#coorBox {
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+}
 #coordinates {
 	text-align: center;
 	text-transform: uppercase;
@@ -21,35 +25,7 @@ html, body {
 	text-transform: lowercase;
 	font-weight: normal;
 }
-#coorBox {
-	text-align: center;
-	font-family: Arial, Helvetica, sans-serif;
-}
-#compassDirection {
-	text-align: center;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 300%;
-}
-#degreesOffNorth {
-	text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 200%;
-}
-#dataContainerOrientation {
-	text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-}
-#dataContainerAccuracy {
-	text-align: center;
-	font-family: Arial, Helvetica, sans-serif;
-}
 #map {
+	display: none;
 	height: 20%;
 }
-
-/* Device type CSS. May remove later !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
-#deviceType {
-	text-align: center;
-	font-family: Arial, Helvetica, sans-serif;
-}
-/* End of what I will possibly remove.!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */

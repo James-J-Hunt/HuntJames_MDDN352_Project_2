@@ -1,4 +1,4 @@
-<!--Version 19-->
+<!--Version 20-->
 
 <!DOCTYPE html>
 <html>
@@ -6,62 +6,31 @@
     <title>Haptica</title>
     <link rel="stylesheet" href="styles.css">
   </head>
-  <body id="container" onload="init()">
+  <body id="container">
     <!--Displays Version Number for easier testing. Will change to Title when finished-->
     <div id="version">
-      Version 19
+      Version 20
     </div>
     <br>
-
     <!--Search Bar Parts HTML-->
     <div id="coorBox">
       <input id="address" type="textbox" value="Enter Place Here">
       <input id="submit" type="button" value="Geocode">
     </div>
     <br>
-
-  <div id="coordinates">
-    <p>
-      Current Location:<br/>
-      <span id="latC">???</span>°, <span id="longC">???</span>°
+    <!--Displays the data from the map-->
+    <div id="coordinates">
       <p>
-      Desired Location:<br/>
-      <span id="latD">???</span>°, <span id="longD">???</span>°
-      <p>
-      Heading:<br/>
-      <span id="heading">???</span>°
-    </p>
-  </div>
-
-    <!--Show whether the which Cardinal Direction the phone is facing. Possibly remove or adapt later-->
-    <div id="compassDirection">
+        Current Location:<br/>
+        <span id="latC">???</span>°, <span id="longC">???</span>°
+        <p>
+        Desired Location:<br/>
+        <span id="latD">???</span>°, <span id="longD">???</span>°
+        <p>
+        Heading:<br/>
+        <span id="heading">???</span>°
+      </p>
     </div>
-    <br>
-
-    <!--Shows how many degrees off north you are. Good for testing. May not be used in final app-->
-    <div id="degreesOffNorth">
-      No deg off North Found
-    </div>
-    <br>
-
-    <!--Shows the Alpha, Beta, and Gamma raw data and rounds it. Great for testing-->
-    <div id="dataContainerOrientation">
-      No device orientation data
-    </div>
-    <br>
-
-    <!--Shows the accuracy of the data, as it isn't perfect and I want to make that very clear-->
-    <div id="dataContainerAccuracy">
-    </div>
-    <br>
-
-    <!--Container to Display Device Type Data. May Remove Later!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
-    <div id="deviceType">
-      Device Type not found
-    </div>
-    <br>
-    <!--End of what I will possibly remove.!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
-
     <!--Legally to use data from the Google Maps API I have to display the map, so has to be displayed-->
     <div id="map"></div>
 
