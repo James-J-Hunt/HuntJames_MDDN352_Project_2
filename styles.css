@@ -1,4 +1,4 @@
-/* Version 20 */
+/* Version 21 */
 html, body {
 	height: 100%;
 	margin: 0;
@@ -11,21 +11,20 @@ html, body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 150%;
 }
-#coorBox {
-	text-align: center;
-	font-family: Arial, Helvetica, sans-serif;
-}
 #coordinates {
 	text-align: center;
 	text-transform: uppercase;
     font-weight: bold;
 	font-family: Arial, Helvetica, sans-serif;
 }
-#latC, #longC, #latD, #longD, #heading {
+#latC, #longC, #latD, #longD, #heading, #alpha {
 	text-transform: lowercase;
 	font-weight: normal;
 }
+#coorBox {
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+}
 #map {
-	display: none;
 	height: 20%;
 }

@@ -1,4 +1,4 @@
-<!--Version 20-->
+<!--Version 21-->
 
 <!DOCTYPE html>
 <html>
@@ -9,28 +9,34 @@
   <body id="container">
     <!--Displays Version Number for easier testing. Will change to Title when finished-->
     <div id="version">
-      Version 20
+      Version 21
     </div>
     <br>
+
     <!--Search Bar Parts HTML-->
     <div id="coorBox">
       <input id="address" type="textbox" value="Enter Place Here">
       <input id="submit" type="button" value="Geocode">
     </div>
     <br>
-    <!--Displays the data from the map-->
+
     <div id="coordinates">
       <p>
         Current Location:<br/>
         <span id="latC">???</span>°, <span id="longC">???</span>°
         <p>
-        Desired Location:<br/>
+        Destination:<br/>
         <span id="latD">???</span>°, <span id="longD">???</span>°
         <p>
         Heading:<br/>
         <span id="heading">???</span>°
+        <p>
+        Alpha:<br/>
+        <span id="alpha">???</span>°
+      </p>
       </p>
     </div>
+
     <!--Legally to use data from the Google Maps API I have to display the map, so has to be displayed-->
     <div id="map"></div>
 
