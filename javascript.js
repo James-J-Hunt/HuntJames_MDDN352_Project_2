@@ -1,4 +1,4 @@
-// Version 43
+// Version 44
 
 // Compass Code and alpha data etc inspired and adapted from HTML5 for the Mobile Web: Device Orientation Events
 // https://mobiforge.com/design-development/html5-mobile-web-device-orientation-events
@@ -67,6 +67,11 @@ function compass (latD, longD) {
       var accuracy; // Variable holder for alpha accuracy purely for iPhone use, can't be calculated yet
       var northDegree; // Variable holder for how many degrees you are from North, can't be calculated yet
 
+      var colourChange;
+      var colourChanger;
+
+
+
       // Check for iOS properties
       if(event.webkitCompassHeading) {
         alpha = event.webkitCompassHeading; // Calculates where North is for iPhone. Not perfect
@@ -117,11 +122,6 @@ function compass (latD, longD) {
         var alpha = alpha + 360;
       }
 
-
-
-
-
-
       var angle = alpha - heading;
 
 
@@ -140,11 +140,11 @@ function compass (latD, longD) {
 
 
 
-      if (angle < 180) {
-        var colourChange = angle;
+      if (angle =< 180) {
+        colourChange = angle;
       }
       else {
-        var colourChange = 360 - angle;
+        colourChange = 360 - angle;
       }
 
 
@@ -155,7 +155,7 @@ function compass (latD, longD) {
 
 
 
-      var colourChanger = 200 - (colourChange*0.6);
+      colourChanger = 200 - (colourChange*0.6);
 
       if (colourChange <= 5) {
         backColour.style.backgroundColor = 'rgb(66, 244, 101)';
