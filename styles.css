@@ -4,8 +4,6 @@ html, body {
 	margin: 0;
 	padding: 0;
 }
-#container {
-}
 #version {
 	text-align: center;
     text-transform: uppercase;
@@ -13,17 +11,17 @@ html, body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 150%;
 }
-#Coord2 {
+#coordinates {
 	text-align: center;
 	text-transform: uppercase;
     font-weight: bold;
 	font-family: Arial, Helvetica, sans-serif;
 }
-#coorBox {
-	text-align: center;
-	font-family: Arial, Helvetica, sans-serif;
+#latC, #longC, #latD, #longD {
+	text-transform: lowercase;
+	font-weight: normal;
 }
-#latLong2 {
+#coorBox {
 	text-align: center;
 	font-family: Arial, Helvetica, sans-serif;
 }

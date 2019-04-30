@@ -120,6 +120,14 @@ function init() {
   }
 }
 
+
+
+
+
+
+var latD;
+var longD;
+
 // GMP - GS Start
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
@@ -145,8 +153,8 @@ function geocodeAddress(geocoder, resultsMap) {
         position: results[0].geometry.location
       });
       var lat = marker.getPosition().lat(); // My addition. Gets the latitude of the desire location and holds it in a variable
-      var lng = marker.getPosition().lng(); // My addition. Gets the longitude of the desire location and holds it in a variable
-      latLong2.innerHTML = 'Lat: ' + lat + '<br/>Long: ' + lng; // My addition. Outputs the variable above into the HTML
+      var long = marker.getPosition().lng(); // My addition. Gets the longitude of the desire location and holds it in a variable
+      coordinates(lat, long); // My addition. Starts the coordinates function
     } 
     else {
       alert('Geocode was not successful for the following reason: ' + status);
@@ -155,7 +163,14 @@ function geocodeAddress(geocoder, resultsMap) {
 }
 // GMP - GS End
 
-navigator.geolocation.watchPosition(function(position) {
-  document.getElementById('currentLat').innerHTML = position.coords.latitude;
-  document.getElementById('currentLon').innerHTML = position.coords.longitude;
-});
+function coordinates(latD, longD) {
+  navigator.geolocation.watchPosition(function(position) {
+    var latC = position.coords.latitude;
+    var longC = position.coords.longitude; 
+    document.getElementById('latC').innerHTML = latC;
+    document.getElementById('longC').innerHTML = longC;
+    document.getElementById('latD').innerHTML = latD;
+    document.getElementById('longD').innerHTML = longD;
+    console.log("Executed!");
+  });
+}
