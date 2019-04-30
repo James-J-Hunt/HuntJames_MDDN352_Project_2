@@ -1,4 +1,4 @@
-// Version 44
+// Version 45
 
 // Compass Code and alpha data etc inspired and adapted from HTML5 for the Mobile Web: Device Orientation Events
 // https://mobiforge.com/design-development/html5-mobile-web-device-orientation-events
@@ -140,7 +140,7 @@ function compass (latD, longD) {
 
 
 
-      if (angle =< 180) {
+      if (angle <= 180) {
         colourChange = angle;
       }
       else {
