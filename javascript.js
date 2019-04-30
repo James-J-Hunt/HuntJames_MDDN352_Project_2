@@ -1,4 +1,4 @@
-// Version 32
+// Version 33
 
 // Compass Code and alpha data etc inspired and adapted from HTML5 for the Mobile Web: Device Orientation Events
 // https://mobiforge.com/design-development/html5-mobile-web-device-orientation-events
@@ -102,13 +102,13 @@ function compass (latD, longD) {
         heading = google.maps.geometry.spherical.computeHeading(pointA, pointB); 
       });
 
-      alpha = alpha + 25;
+      alphaNew = alpha + 25;
 
-      if (alpha> 360) {
-        var angle = alpha - 360;
+      if (alphaNew> 360) {
+        var angle = alphaNew - 360;
       }
-      else if (alpha < 0) {
-        var angle = alpha + 360;
+      else if (alphaNew < 0) {
+        var angle = alphaNew + 360;
       }
 
 
@@ -116,14 +116,14 @@ function compass (latD, longD) {
 
 
 
-      if (alpha + heading > 360) {
-        var angle = alpha + heading - 360;
+      if (alphaNew + heading > 360) {
+        var angle = alphaNew + heading - 360;
       }
-      else if (alpha + heading < 0) {
-        var angle = alpha + heading + 360;
+      else if (alphaNew + heading < 0) {
+        var angle = alphaNew + heading + 360;
       }
       else {
-        var angle = alpha + heading;
+        var angle = alphaNew + heading;
       }
 
       if (angle < 180) {
@@ -149,7 +149,7 @@ function compass (latD, longD) {
       document.getElementById('latD').innerHTML = latD;
       document.getElementById('longD').innerHTML = longD;
       document.getElementById('heading').innerHTML = heading;
-      document.getElementById('alpha').innerHTML = alpha;
+      document.getElementById('alpha').innerHTML = alphaNew;
       document.getElementById('angle').innerHTML = angle;
       document.getElementById('colourChange').innerHTML = colourChange;
 
