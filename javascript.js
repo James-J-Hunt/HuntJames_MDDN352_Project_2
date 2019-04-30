@@ -1,4 +1,4 @@
-// Version 30
+// Version 31
 
 // Compass Code and alpha data etc inspired and adapted from HTML5 for the Mobile Web: Device Orientation Events
 // https://mobiforge.com/design-development/html5-mobile-web-device-orientation-events
@@ -102,14 +102,16 @@ function compass (latD, longD) {
         heading = google.maps.geometry.spherical.computeHeading(pointA, pointB); 
       });
 
+      alpha = alpha + 25;
+
       if (alpha + heading > 360) {
-        var angle = alpha - heading - 360;
+        var angle = alpha + heading - 360;
       }
       else if (alpha + heading < 0) {
-        var angle = alpha - heading + 360;
+        var angle = alpha + heading + 360;
       }
       else {
-        var angle = alpha - heading;
+        var angle = alpha + heading;
       }
 
       if (angle < 180) {
