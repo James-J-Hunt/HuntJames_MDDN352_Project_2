@@ -1,4 +1,4 @@
-// Version 21
+// Version 22
 
 // Compass Code and alpha data etc inspired and adapted from HTML5 for the Mobile Web: Device Orientation Events
 // https://mobiforge.com/design-development/html5-mobile-web-device-orientation-events
@@ -67,6 +67,8 @@ function compass (latD, longD) {
       var accuracy; // Variable holder for alpha accuracy purely for iPhone use, can't be calculated yet
       var northDegree; // Variable holder for how many degrees you are from North, can't be calculated yet
 
+      var angle;
+
       // Check for iOS properties
       if(event.webkitCompassHeading) {
         alpha = event.webkitCompassHeading; // Calculates where North is for iPhone. Not perfect
@@ -102,6 +104,18 @@ function compass (latD, longD) {
         heading = google.maps.geometry.spherical.computeHeading(pointA, pointB); 
       });
 
+
+
+      angle = alpha + heading;
+
+
+
+
+
+
+
+
+
       // Prints all the different values being used
       document.getElementById('latC').innerHTML = latC;
       document.getElementById('longC').innerHTML = longC;
@@ -109,6 +123,7 @@ function compass (latD, longD) {
       document.getElementById('longD').innerHTML = longD;
       document.getElementById('heading').innerHTML = heading;
       document.getElementById('alpha').innerHTML = alpha;
+      document.getElementById('angle').innerHTML = angle;
 
     }, false); // This could also be what loops the code. I am not fully sure
   }

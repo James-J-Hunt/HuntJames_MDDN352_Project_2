@@ -1,4 +1,4 @@
-/* Version 21 */
+/* Version 22 */
 html, body {
 	height: 100%;
 	margin: 0;
@@ -17,7 +17,7 @@ html, body {
     font-weight: bold;
 	font-family: Arial, Helvetica, sans-serif;
 }
-#latC, #longC, #latD, #longD, #heading, #alpha {
+#latC, #longC, #latD, #longD, #heading, #alpha, #angle {
 	text-transform: lowercase;
 	font-weight: normal;
 }
