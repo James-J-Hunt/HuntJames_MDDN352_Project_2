@@ -1,4 +1,4 @@
-// Version 17
+// Version 19
 
 // Compass Code and alpha data etc inspired and adapted from HTML5 for the Mobile Web: Device Orientation Events
 // https://mobiforge.com/design-development/html5-mobile-web-device-orientation-events
@@ -172,5 +172,12 @@ function coordinates(latD, longD) {
     document.getElementById('latD').innerHTML = latD;
     document.getElementById('longD').innerHTML = longD;
     console.log("Executed!");
+
+    var pointA = new google.maps.LatLng(latC, longC);
+    var pointB = new google.maps.LatLng(latD, longD);
+
+    var heading = google.maps.geometry.spherical.computeHeading(pointA, pointB);
+
+    document.getElementById('heading').innerHTML = heading;
   });
 }

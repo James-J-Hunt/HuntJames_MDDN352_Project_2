@@ -1,4 +1,4 @@
-<!--Version 17-->
+<!--Version 19-->
 
 <!DOCTYPE html>
 <html>
@@ -9,7 +9,7 @@
   <body id="container" onload="init()">
     <!--Displays Version Number for easier testing. Will change to Title when finished-->
     <div id="version">
-      Version 17
+      Version 19
     </div>
     <br>
 
@@ -22,11 +22,14 @@
 
   <div id="coordinates">
     <p>
-      Current Location (lat, lon):<br/>
+      Current Location:<br/>
       <span id="latC">???</span>°, <span id="longC">???</span>°
       <p>
-      Desired Location (lat, lon):<br/>
+      Desired Location:<br/>
       <span id="latD">???</span>°, <span id="longD">???</span>°
+      <p>
+      Heading:<br/>
+      <span id="heading">???</span>°
     </p>
   </div>
 
@@ -64,6 +67,6 @@
 
     <!--Links to the CSS, Javascript, and the Google Map API-->
     <script src="javascript.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9NS6UtaCtvTytSXmlS5ArEEr_XSaZ9B8&callback=initMap"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9NS6UtaCtvTytSXmlS5ArEEr_XSaZ9B8&callback=initMap&libraries=geometry"></script>
   </body>
 </html>
