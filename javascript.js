@@ -1,4 +1,4 @@
-// Version 50
+// Version 51
 
 // Compass Code and alpha data etc inspired and adapted from HTML5 for the Mobile Web: Device Orientation Events
 // https://mobiforge.com/design-development/html5-mobile-web-device-orientation-events
@@ -16,31 +16,35 @@ var longD;
 
 // GMP - GS Start
 function initMap() {
+  // Initiates a new map. Not displayed on website, but use to gether the data below
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 8,
     center: {lat: -41.286, lng: 174.776} // My addition. Changed coordinates to focus on Wellington
   });
   var geocoder = new google.maps.Geocoder();
 
+  // When the submit button is pressed executes the geocodeAddress. Which gets the desired location data
   document.getElementById('submit').addEventListener('click', function() {
-    geocodeAddress(geocoder, map);
+    geocodeAddress(geocoder, map); // Function executed and thats the variables of the stated address
   });
 }
 
 function geocodeAddress(geocoder, resultsMap) {
-  var address = document.getElementById('address').value;
+  var address = document.getElementById('address').value; // Takes the address entered
   var latLong2 = document.getElementById('latLong2'); // My addition. Holds the container to show the coordinate data for desire location
 
+  // Not sure how this works complete but have left comments where I understand and is needed
   geocoder.geocode({'address': address}, function(results, status) {
     if (status === 'OK') {
-      resultsMap.setCenter(results[0].geometry.location);
+      resultsMap.setCenter(results[0].geometry.location); // Finds the location
       var marker = new google.maps.Marker({
+        // Puts a Marker at that result
         map: resultsMap,
         position: results[0].geometry.location
       });
       var lat = marker.getPosition().lat(); // My addition. Gets the latitude of the desire location and holds it in a variable
       var long = marker.getPosition().lng(); // My addition. Gets the longitude of the desire location and holds it in a variable
-      compass(lat, long); // My addition. Starts the coordinates function
+      compass(lat, long); // My addition. Starts the coordinates function and enters the data found from this function
     } 
     else {
       alert('Geocode was not successful for the following reason: ' + status);
@@ -105,8 +109,10 @@ function compass (latD, longD) {
         heading = google.maps.geometry.spherical.computeHeading(pointA, pointB); 
       });
 
+      // Arbitrary fix to alpha not pointing at true north. Only works for iPhone (chrome) and kind of ruins the data for any other devices
       alpha = alpha + 25;
 
+      // Small change to account for the arbitrary solution above to keep north within 0 - 360 degrees
       if (alpha> 360) {
         alpha = alpha - 360;
       }
@@ -114,8 +120,10 @@ function compass (latD, longD) {
         alpha = alpha + 360;
       }
 
+      // Sets the angle 0/360 point in the direction of the location. At 0/360 will be pointing at the location you want to go
       var angle = alpha - heading;
 
+      // Keeps angle within 0 - 360 range again
       if (angle >= 360) {
         angle = angle - 360;
       }
@@ -123,6 +131,8 @@ function compass (latD, longD) {
         angle = angle + 360;
       }
 
+      // Controls variable which acts like the angle variable but instead between the value of 0 and 180 and describes how big
+      // the difference is between the alpha and heading angle. Is then used to apply the colouring
       if (angle < 180) {
         colourChange = angle;
       }
@@ -130,8 +140,11 @@ function compass (latD, longD) {
         colourChange = 360 - angle;
       }
 
+      // Variable that takes the colourChange variable and applies a math equation to it to be used to fade the red to establish the wrong direction
       colourChanger = 200 - (colourChange*0.6);
 
+      // If the phone is facing in the right direction (5 degree leeway) the site will be green. Else it will be a red that gets darker depending 
+      // on how far away from the location you are facing with 180 degrees being nearly greyish, which means you are facing completel in the wrong direction
       if (colourChange <= 5) {
         backColour.style.backgroundColor = 'rgb(66, 244, 101)';
       }
