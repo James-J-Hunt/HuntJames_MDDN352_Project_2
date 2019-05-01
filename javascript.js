@@ -1,4 +1,4 @@
-// Version 46
+// Version 47
 
 // Compass Code and alpha data etc inspired and adapted from HTML5 for the Mobile Web: Device Orientation Events
 // https://mobiforge.com/design-development/html5-mobile-web-device-orientation-events
@@ -70,8 +70,6 @@ function compass (latD, longD) {
       var colourChange;
       var colourChanger;
 
-
-
       // Check for iOS properties
       if(event.webkitCompassHeading) {
         alpha = event.webkitCompassHeading; // Calculates where North is for iPhone. Not perfect
@@ -118,7 +116,6 @@ function compass (latD, longD) {
 
       var angle = alpha - heading;
 
-
       if (angle >= 360) {
         angle = angle - 360;
       }
@@ -126,28 +123,12 @@ function compass (latD, longD) {
         angle = angle + 360;
       }
 
-
-
-
-
-
-
-
-
       if (angle < 180) {
         colourChange = angle;
       }
       else {
         colourChange = 360 - angle;
       }
-
-
-
-
-
-
-
-
 
       colourChanger = 200 - (colourChange*0.6);
 
@@ -158,14 +139,6 @@ function compass (latD, longD) {
         backColour.style.backgroundColor = 'rgb(' + colourChanger + ', 60 , 60)';
       }
 
-
-
-
-
-
-
-
-
       // Prints all the different values being used
       document.getElementById('latC').innerHTML = latC;
       document.getElementById('longC').innerHTML = longC;
@@ -173,7 +146,6 @@ function compass (latD, longD) {
       document.getElementById('longD').innerHTML = longD;
       document.getElementById('heading').innerHTML = heading;
       document.getElementById('alpha').innerHTML = alpha;
-      document.getElementById('angle').innerHTML = angle;
       document.getElementById('colourChange').innerHTML = colourChange;
 
     }, false); // This could also be what loops the code. I am not fully sure

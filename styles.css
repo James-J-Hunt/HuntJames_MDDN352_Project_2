@@ -1,30 +1,48 @@
-/* Version 46 */
-html, body {
+/* Version 47 */
+html {
 	height: 100%;
 	margin: 0;
 	padding: 0;
 }
-#version {
+body {
+	height: 100%;
+	margin: 0;
+	margin-top: 10%;
+	padding: 0;
+}
+#logoLite {
+	width: 80%;
+	margin: auto;
 	text-align: center;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 150%;
+	display: block;
+}
+#logoDark {
+	width: 80%;
+	margin: auto;
+	text-align: center;
+	display: none;
+}
+#coorBox {
+	margin-top: 5%;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+}
+#address, #submit {
+	font-size: 2.5em;
 }
 #coordinates {
+	margin-top: 7%;
 	text-align: center;
 	text-transform: uppercase;
+	font-size: 2em;
     font-weight: bold;
 	font-family: Arial, Helvetica, sans-serif;
 }
-#latC, #longC, #latD, #longD, #heading, #alpha, #angle, #colourChange {
+#latC, #longC, #latD, #longD, #heading, #alpha, #colourChange {
 	text-transform: lowercase;
 	font-weight: normal;
 }
-#coorBox {
-	text-align: center;
-	font-family: Arial, Helvetica, sans-serif;
-}
 #map {
 	height: 20%;
+	display: none;
 }
